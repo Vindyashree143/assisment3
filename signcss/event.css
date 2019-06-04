@@ -1,122 +1,99 @@
-.event {
-        display: inline-block;
-        width: 100%;
-        height: 150px;
-        overflow: hidden;
-        margin-bottom: 20px;
-        border: 1px solid #607D8D;
-        vertical-align: middle;
-    }
+body {
+  background-color: #333;
+  color: #aaa;
+  font-family: 'Josefin Sans';
+}
 
-        .event .date {
-            display: inline-block;
-            width: 150px;
-            height: 150px;
-            text-align: center;
-            background-color: #607D8D;
-            vertical-align: middle;
-            overflow: hidden;
-        }
+.calendar {
+  width: 350px;
+  margin: 50px auto 0;
+}
 
-            .event .date .day {
-                font-size: 70px;
-                color: #fff;
-            }
+.calendar__month {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
+}
 
-            .event .date .month {
-                font-size: 30px;
-                color: #fff;
-            }
+.cal-month__previous,
+.cal-month__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  
+  &:hover {
+    background-color: #42A5F5;
+    box-shadow: 0 5px 5px -5px rgba(0,0,0,0.75);
+    border-radius: 50%;
+    font-weight: 800;
+    color: #111;
+  }
+}
 
-        .event .img {
-            display: inline-block;
-            width: 150px;
-            height: 150px;
-            vertical-align: top;
-            overflow: hidden;
-        }
+.cal-month__next {
+  right: 0;
+}
 
-            .event .img img {
-                width: 100%;
-                height: auto;
-                vertical-align: middle;
-            }
+.cal-month__current {
+  text-align: center;
+  color: #e1e1e1;
+}
 
-        .event .desc {
-            display: inline-block;
-            padding-left: 20px;
-            font-size: 15px;
-            overflow: hidden;
-            vertical-align: middle;
-        }
+.cal-head__day,
+.cal-body__day {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  float: left;
+}
 
-        .event .social {
-            font-size: 25px;
-            overflow: hidden;
-        }
+.cal-body__week,
+.calendar__head {
+  display: block;
+  height: 50px;
+  width: 350px;
+}
 
-            .event .social .si {
-                display: inline-block;
-                width: 100%;
-                clear: both;
-                vertical-align: middle;
-                overflow: hidden;
-            }
+.calendar__head {
+  line-height: 50px;
+  position: relative;
+  
+  &:after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #90CAF9;
+  }
+}
 
-            .event .social .facebook {
-                color: rgb(48, 88, 145) !important;
-            }
+.cal-body__day {
+  color: #777;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
 
-            .event .social .twitter {
-                color: rgb(79, 213, 248) !important;
-            }
+.cal-day__month--current {
+  color: #e1e1e1;
+}
 
-            .event .social .google-plus {
-                color: rgb(221, 75, 57) !important;
-            }
+.cal-day__day--today {
+  font-weight: 800;
+  color: #2196f3;
+}
 
-            .event .social .facebook:hover {
-                color: #607D8D !important;
-            }
-
-            .event .social .twitter:hover {
-                color: #607D8D !important;
-            }
-
-            .event .social .google-plus:hover {
-                color: #607D8D !important;
-            }
-
-    @media screen and (max-width:640px) {
-        .event .desc h3 {
-            font-size: 15px;
-        }
-
-        .event {
-            height: 100px;
-        }
-
-            .event .date {
-                width: 100px;
-                height: 100px;
-            }
-
-                .event .date .day {
-                    font-size: 20px;
-                }
-
-            .event .img {
-                width: 100px;
-                height: 100px;
-            }
-
-            .event .social {
-                font-size: 16px;
-            }
-    }
-
-    @media screen and (max-width:480px) {
-        .event .img {
-            display: none;
-        }
-    }
+.cal-day__day--selected {
+  background-color: #2196f3;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, .75);
+  border-radius: 50%;
+  color: #111;
+}
